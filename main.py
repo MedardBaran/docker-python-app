@@ -6,7 +6,8 @@ app = Flask(__name__)
 
 @app.route('/')
 def hello():
-    return 'Hello Cloud!\n'
+    return ('Hello Cloud!\n'
+            'This app was created for GCP Application Development Challenge\n')
 
 @app.errorhandler(500)
 def server_error(e):
