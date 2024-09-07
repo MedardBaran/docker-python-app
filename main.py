@@ -6,7 +6,7 @@ app = Flask(__name__)
 
 @app.route('/')
 def hello():
-    return 'Hello Cloud'
+    return 'Hello Cloud!\n'
 
 @app.errorhandler(500)
 def server_error(e):
