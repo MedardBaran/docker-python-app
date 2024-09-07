@@ -3,4 +3,4 @@ gunicorn==19.6.0
 futures==3.0.5
 google-cloud>=0.34.0
 google-cloud-core>=1.7.1
-google-cloud-datastore>=2.1.4
+google-cloud-datastore
