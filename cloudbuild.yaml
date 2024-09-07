@@ -1,0 +1,5 @@
+steps:
+- name: 'gcr.io/cloud-builders/docker'
+  args: ['build', '-t', 'europe-central2-docker.pkg.dev/nodal-vigil-434510-h6/mb-repo/mb-app', '.']
+options:
+  logging: CLOUD_LOGGING_ONLY
