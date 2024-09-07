@@ -1,23 +1,15 @@
 import logging
 import random
-from db import pool
+
 from flask import Flask, request, jsonify
 
 app = Flask(__name__)
 
-
-def get_random_nick():
-    with pool.connect() as db_conn:
-        nicks = db_conn.execute("SELECT * FROM nicks")
-
-    return random.choice(nicks)
-
-
 @app.route('/')
 def hello():
-    nick = get_random_nick()
-    return ('Hello Cloud!\n'
-            'This app was created for GCP Application Development Challenge\n')
+    nick = 'Cloud'
+    return (f'Hello {nick}!\n'
+             'This app was created for GCP Application Development Challenge\n')
 
 
 @app.errorhandler(500)
