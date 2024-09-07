@@ -13,6 +13,6 @@ spec:
         app: mb-cluster-1
     spec:
       containers:
-      - image: europe-central2-docker.pkg.dev/nodal-vigil-434510-h6/mb-repo/mb-app:0.3
+      - image: europe-central2-docker.pkg.dev/nodal-vigil-434510-h6/mb-repo/mb-app:latest
         imagePullPolicy: IfNotPresent
         name: mb-app
