@@ -6,6 +6,10 @@ steps:
 - name: "gcr.io/cloud-builders/docker"
   args: ["push", "europe-west2-docker.pkg.dev/nodal-vigil-434510-h6/mb-repo/mb-app:latest"]
   # deploy container image to GKE
+- name: 'gcr.io/cloud-builders/gcloud'
+  args: ['sql', 'databases', 'create', 'mb-db', '--instance=mb-db-instance']
+- name: 'gcr.io/cloud-builders/gcloud'
+  args: ['sql', 'import', 'sql', 'mb-db-instance', 'migration-script.sql']
 - name: "gcr.io/cloud-builders/gke-deploy"
   args:
   - run

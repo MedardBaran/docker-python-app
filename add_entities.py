@@ -2,14 +2,10 @@ import db_utils
 
 
 def main():
-    db_utils.execute("""
-        CREATE OR REPLACE TABLE nicks (nick VARCHAR(100));
-        INSERT INTO nicks VALUES
-        ('fatty_dev'),
-        ('cloud_master'), 
-        ('god_of_gcp'), 
-        ('fluffy_ops');
-    """)
+    with open('migration-script.sql', 'r') as file:
+        script = file.readlines()
+
+    db_utils.execute(script)
 
 
 if __name__ == '__main__':
