@@ -11,9 +11,9 @@ steps:
 #- name: 'gcr.io/cloud-builders/gcloud'
 #  args: ['sql', 'databases', 'create', 'mb-db', '--instance=mb-db-instance']
 # run migration script
-- name: 'gcr.io/cloud-builders/gcloud'
-  args: ['sql', 'import', 'sql', 'mb-db-instance', 'gs://docker-python-app/migration-script.sql']
-  # deploy container image to GKE
+#- name: 'gcr.io/cloud-builders/gcloud'
+#  args: ['sql', 'import', 'sql', 'mb-db-instance', 'gs://docker-python-app/migration-script.sql']
+# deploy container image to GKE
 - name: "gcr.io/cloud-builders/gke-deploy"
   args:
   - run
