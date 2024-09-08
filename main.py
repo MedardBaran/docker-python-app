@@ -1,5 +1,7 @@
 import logging
 import random
+import sqlalchemy
+import db
 
 from flask import Flask, request, jsonify
 
@@ -7,7 +9,10 @@ app = Flask(__name__)
 
 @app.route('/')
 def hello():
-    nick = 'Cloud'
+    with db.pool.connect() as db_conn:
+        nicks = db_conn.execute(sqlalchemy.text("SELECT * FROM nicks")).fetchall()
+
+    nick = random.choice(nicks)
     return (f'Hello {nick}!\n'
              'This app was created for GCP Application Development Challenge\n')
 
