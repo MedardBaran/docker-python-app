@@ -1,3 +1,5 @@
+serviceAccount: 'medardb-service-account@nodal-vigil-434510-h6.iam.gserviceaccount.com'
+
 steps:
   # build the container image
 - name: 'gcr.io/cloud-builders/docker'
@@ -11,7 +13,6 @@ steps:
 # run migration script
 - name: 'gcr.io/cloud-builders/gcloud'
   args: ['sql', 'import', 'sql', 'mb-db-instance', 'gs://docker-python-app/migration-script.sql']
-  serviceAccount: 'medardb-service-account@nodal-vigil-434510-h6.iam.gserviceaccount.com'
   # deploy container image to GKE
 - name: "gcr.io/cloud-builders/gke-deploy"
   args:
