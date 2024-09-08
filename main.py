@@ -1,13 +1,10 @@
 import logging
 import random
-import sqlalchemy
 import db_utils
 
 from flask import Flask, request, jsonify
-from sqlalchemy import SQLAlchemy
 
 app = Flask(__name__)
-db = SQLAlchemy(app)
 
 @app.route('/')
 def hello():
