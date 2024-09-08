@@ -1,0 +1,36 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  creationTimestamp: null
+  labels:
+    app: mb-cluster-1
+  name: mb-cluster-1
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: mb-cluster-1
+  strategy: {}
+  template:
+    metadata:
+      creationTimestamp: null
+      labels:
+        app: mb-cluster-1
+    spec:
+      containers:
+      - image: europe-west1-docker.pkg.dev/nodal-vigil-434510-h6/mb-repo/mb-app:latest
+        name: mb-app
+        resources: {}
+        env:
+        - name: DB_PASSWORD
+          valueFrom:
+            secretKeyRef:
+              name: password
+              key: DB_PASSWORD
+        - name: DB_USER
+          value: root
+        - name: DB_PRIVATE_IP
+          value: 10.110.144.3
+        - name: DB_NAME
+          value: mb-db
+

@@ -9,7 +9,7 @@ steps:
 - name: "gcr.io/cloud-builders/gke-deploy"
   args:
   - run
-  - --filename=kubernetes.yaml
+  - --filename=deployment.yaml
   - --image=europe-central2-docker.pkg.dev/nodal-vigil-434510-h6/mb-repo/mb-app:latest
   - --location=europe-west2
   - --cluster=mb-cluster-1
