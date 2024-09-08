@@ -1,3 +1,5 @@
+USE mb-db;
+
 CREATE OR REPLACE TABLE nicks (nick VARCHAR(100));
 
 INSERT INTO nicks VALUES
