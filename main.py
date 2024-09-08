@@ -10,7 +10,9 @@ app = Flask(__name__)
 def hello():
     nicks = db_utils.execute("SELECT * FROM nicks")
 
-    nick = random.choice(nicks)
+    nick = str(random.choice(nicks))
+    nick = nick.removeprefix("('").removesuffix("',)")
+
     return (f'Hello {nick}!\n'
              'This app was created for GCP Application Development Challenge\n')
 
