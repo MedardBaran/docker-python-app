@@ -1,16 +1,17 @@
 import logging
 import random
 import sqlalchemy
-import db
+import db_utils
 
 from flask import Flask, request, jsonify
+from sqlalchemy import SQLAlchemy
 
 app = Flask(__name__)
+db = SQLAlchemy(app)
 
 @app.route('/')
 def hello():
-    with db.pool.connect() as db_conn:
-        nicks = db_conn.execute(sqlalchemy.text("SELECT * FROM nicks")).fetchall()
+    nicks = db_utils.execute("SELECT * FROM nicks")
 
     nick = random.choice(nicks)
     return (f'Hello {nick}!\n'
@@ -27,4 +28,4 @@ def server_error(e):
 
 
 if __name__ == '__main__':
-    app.run(host='0.0.0.0', port=8080)
+    app.run(host='0.0.0.0', port=8080, debug=True)
