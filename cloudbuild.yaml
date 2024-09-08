@@ -1,16 +1,16 @@
 steps:
   # build the container image
 - name: 'gcr.io/cloud-builders/docker'
-  args: ['build', '-t', 'europe-central2-docker.pkg.dev/nodal-vigil-434510-h6/mb-repo/mb-app', '.']
+  args: ['build', '-t', 'europe-west2-docker.pkg.dev/nodal-vigil-434510-h6/mb-repo/mb-app', '.']
   # push container image
 - name: "gcr.io/cloud-builders/docker"
-  args: ["push", "europe-central2-docker.pkg.dev/nodal-vigil-434510-h6/mb-repo/mb-app:latest"]
+  args: ["push", "europe-west2-docker.pkg.dev/nodal-vigil-434510-h6/mb-repo/mb-app:latest"]
   # deploy container image to GKE
 - name: "gcr.io/cloud-builders/gke-deploy"
   args:
   - run
   - --filename=deployment.yaml
-  - --image=europe-central2-docker.pkg.dev/nodal-vigil-434510-h6/mb-repo/mb-app:latest
+  - --image=europe-west2-docker.pkg.dev/nodal-vigil-434510-h6/mb-repo/mb-app:latest
   - --location=europe-west2
   - --cluster=mb-cluster-1
 options:

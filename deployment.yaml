@@ -18,7 +18,7 @@ spec:
         app: mb-cluster-1
     spec:
       containers:
-      - image: europe-west1-docker.pkg.dev/nodal-vigil-434510-h6/mb-repo/mb-app:latest
+      - image: europe-west2-docker.pkg.dev/nodal-vigil-434510-h6/mb-repo/mb-app:latest
         name: mb-app
         resources: {}
         env:
